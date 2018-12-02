@@ -12,6 +12,14 @@ test('test_string', () => {
     expect(longstring('qwerqwerqwerqwerqwerqwerqwer')).toEqual(false);
 });
 
+function s_concat_all(str1, str2, str3){
+    return String.prototype.concat(str1, str2), String.prototype.concat(str1, str3), String.prototype.concat(str2, str3);
+}
+
+test('test_concat', () => {
+    expect(s_concat_all('a', 'b', 'c')).toEqual('bc', 'ac', 'ab');
+});
+
 function sIncrease(i, ii) { // По возрастанию
     if (i > ii)
         return 1;
@@ -50,6 +58,15 @@ test('test_arrays', () => {
     expect(array_doubler([1, 2, 3])).toEqual([1, 1, 2, 2, 3, 3]);
 });
 
+function arr_pop_shift(arr){
+    var arr_l = arr.pop();
+    arr_l = arr.shift();
+    return arr;
+}
+
+test('test_pop_and_shift', () => {
+    expect(arr_pop_shift([1, 2, 3])).toEqual([2]);
+});
 
 test('test_compare_operators', () => {
     expect(((false == 0) + (false !== 0) != (false == 0)) + false).toEqual(1);
