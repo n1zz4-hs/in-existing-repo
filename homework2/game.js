@@ -136,3 +136,27 @@ while(isFree("south")){
 }
 
 east(); 
+
+// Universal (all levels)
+while (!(robohub.game.initLevel(robohub.game.currLevel+1))){
+    if (isFree("south")){
+        while (isFree("south")){
+            south();
+        }
+    }
+    if (isFree("north")){
+        while (isFree("north")){
+            north();
+        }
+    }
+    if (isFree("west")){
+        while (isFree("west")){
+            west();
+        }
+    }
+    if (isFree("east")){
+        while (isFree("east")){
+            east();
+        }
+    }
+}
